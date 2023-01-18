@@ -27,3 +27,45 @@ module.exports.getBuilding = asyncHandler(async (req, res, next) => {
     return next(new ErrorResponse("Error fetching building", 500));
   }
 });
+
+module.exports.createBuilding = asyncHandler(async (req, res, next) => {
+  const building = await Building.create(req.body);
+
+  if (building) {
+    return res.status(201).json({
+      success: true,
+      data: building,
+    });
+  } else {
+    return next(new ErrorResponse("Error creating building", 500));
+  }
+});
+
+module.exports.updateBuilding = asyncHandler(async (req, res, next) => {
+  const building = await Building.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true,
+  });
+
+  if (building) {
+    return res.status(200).json({
+      success: true,
+      data: building,
+    });
+  } else {
+    return next(new ErrorResponse("Error updating building", 500));
+  }
+});
+
+module.exports.deleteBuilding = asyncHandler(async (req, res, next) => {
+  const building = await Building.findByIdAndDelete(req.params.id);
+
+  if (building) {
+    return res.status(200).json({
+      success: true,
+      data: building,
+    });
+  } else {
+    return next(new ErrorResponse("Error deleting building", 500));
+  }
+});
