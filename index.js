@@ -9,6 +9,7 @@ const path = require("path");
 // import routes
 const authRoutes = require("./routes/auth.routes");
 const userRoutes = require("./routes/users.routes");
+const buildingRoutes = require("./routes/buildings.routes");
 
 //Error Handler middleware
 const ErrorHandler = require("./middleware/error");
@@ -39,6 +40,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/buildings", buildingRoutes);
 
 app.use(ErrorHandler);
 
