@@ -20,7 +20,11 @@ const BuildingSchema = new mongoose.Schema({
     min: [1, "Floors should be at least 1"],
   },
   image: {
-    type: String,
+    type: {
+      image_url: String,
+      public_id: String,
+    },
+    maxlength: 255,
     required: [true, "Image is required"],
   },
   description: {

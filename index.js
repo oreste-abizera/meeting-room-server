@@ -5,6 +5,7 @@ const connectDB = require("./config/db");
 const cors = require("cors");
 const multer = require("multer");
 const path = require("path");
+const cloudinary = require("cloudinary");
 
 // import routes
 const authRoutes = require("./routes/auth.routes");
@@ -16,6 +17,12 @@ const ErrorHandler = require("./middleware/error");
 
 dotenv.config({ path: "./config/config.env" });
 connectDB();
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 const app = express();
 
@@ -29,7 +36,7 @@ const storage = multer.diskStorage({
     cb(null, new Date().getTime() + path.extname(file.originalname));
   },
 });
-app.use(multer({ storage }).single("image"));
+app.use(multer({ storage }).single("picture"));
 
 // routes
 app.get("/", (req, res) => {
