@@ -24,8 +24,6 @@ const BuildingSchema = new mongoose.Schema({
       image_url: String,
       public_id: String,
     },
-    maxlength: 255,
-    required: [true, "Image is required"],
   },
   description: {
     type: String,

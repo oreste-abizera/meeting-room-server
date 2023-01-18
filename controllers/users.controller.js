@@ -17,3 +17,17 @@ module.exports.getAllUsers = asyncHandler(async (req, res, next) => {
     return next(new ErrorResponse("Error fetching users", 500));
   }
 });
+
+module.exports.getUser = asyncHandler(async (req, res, next) => {
+  const user = await User.findById(req.params.id);
+
+  if (user) {
+    user.password = undefined;
+    return res.status(200).json({
+      success: true,
+      data: user,
+    });
+  } else {
+    return next(new ErrorResponse("Error fetching user", 500));
+  }
+});
