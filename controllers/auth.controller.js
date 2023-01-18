@@ -35,6 +35,10 @@ module.exports.register = asyncHandler(async (req, res, next) => {
 module.exports.login = asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;
 
+  if (!email || !password) {
+    return next(new ErrorResponse("Please provide an email and password", 400));
+  }
+
   const user = await User.findOne({ email });
   if (!user) {
     return next(
