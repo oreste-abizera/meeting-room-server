@@ -6,6 +6,7 @@ const {
   createPlace,
   updatePlace,
   deletePlace,
+  uploadPlaceImages,
 } = require("../controllers/places.controller");
 const { protect } = require("../middleware/auth");
 
@@ -16,6 +17,7 @@ router.get("/:id", protect, getPlace);
 router.post("/", protect, createPlace);
 router.put("/:id", protect, updatePlace);
 router.delete("/:id", protect, deletePlace);
+router.post("/:id/images", protect, uploadPlaceImages);
 
 registerDefinition(router, {
   tags: "Places",

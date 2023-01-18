@@ -12,6 +12,7 @@ const authRoutes = require("./routes/auth.routes");
 const userRoutes = require("./routes/users.routes");
 const buildingRoutes = require("./routes/buildings.routes");
 const placeRoutes = require("./routes/places.routes");
+const bookingRoutes = require("./routes/bookings.routes");
 
 //Error Handler middleware
 const ErrorHandler = require("./middleware/error");
@@ -50,6 +51,7 @@ app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/buildings", buildingRoutes);
 app.use("/api/v1/places", placeRoutes);
+app.use("/api/v1/bookings", bookingRoutes);
 
 app.use(ErrorHandler);
 
