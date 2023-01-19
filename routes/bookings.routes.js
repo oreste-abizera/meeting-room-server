@@ -6,10 +6,13 @@ const {
   createBooking,
   rejectBooking,
   approveBooking,
+  getStatistics,
 } = require("../controllers/bookings.controller");
 const { protect } = require("../middleware/auth");
 
 const router = express.Router();
+
+router.get("/statistics", protect, getStatistics);
 
 router.get("/", protect, getAllBookings);
 router.get("/:id", protect, getBooking);

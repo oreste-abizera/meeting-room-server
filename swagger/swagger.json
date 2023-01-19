@@ -727,6 +727,52 @@
           ]
         }
       },
+      "/api/v1/bookings/statistics": {
+        "get": {
+          "tags": [
+            "Bookings"
+          ],
+          "summary": "",
+          "description": "",
+          "parameters": [],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Booking"
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "error": {
+                    "type": "string",
+                    "example": "Internal Server Error"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "Bearer": [
+                "global"
+              ]
+            }
+          ]
+        }
+      },
       "/api/v1/bookings": {
         "get": {
           "tags": [
@@ -1001,11 +1047,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "1/19/2023, 7:09:13 PM"
+            "example": "1/20/2023, 12:05:50 AM"
           },
           "createdAt": {
             "type": "string",
-            "example": "1/19/2023, 7:09:13 PM"
+            "example": "1/20/2023, 12:05:50 AM"
           }
         }
       },
@@ -1038,11 +1084,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "1/19/2023, 7:09:13 PM"
+            "example": "1/20/2023, 12:05:51 AM"
           },
           "createdAt": {
             "type": "string",
-            "example": "1/19/2023, 7:09:13 PM"
+            "example": "1/20/2023, 12:05:51 AM"
           }
         }
       },
@@ -1080,11 +1126,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "1/19/2023, 7:09:13 PM"
+            "example": "1/20/2023, 12:05:51 AM"
           },
           "createdAt": {
             "type": "string",
-            "example": "1/19/2023, 7:09:13 PM"
+            "example": "1/20/2023, 12:05:51 AM"
           }
         }
       },
@@ -1103,11 +1149,11 @@
           },
           "startTime": {
             "type": "string",
-            "example": "1/19/2023, 7:09:13 PM"
+            "example": "1/20/2023, 12:05:51 AM"
           },
           "endTime": {
             "type": "string",
-            "example": "1/19/2023, 7:09:13 PM"
+            "example": "1/20/2023, 12:05:51 AM"
           },
           "status": {
             "type": "string",
@@ -1120,11 +1166,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "1/19/2023, 7:09:13 PM"
+            "example": "1/20/2023, 12:05:51 AM"
           },
           "createdAt": {
             "type": "string",
-            "example": "1/19/2023, 7:09:13 PM"
+            "example": "1/20/2023, 12:05:51 AM"
           }
         }
       }

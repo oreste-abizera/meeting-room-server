@@ -3,6 +3,8 @@ const ErrorResponse = require("../utils/errorResponse");
 
 const Booking = require("../models/Booking");
 const Place = require("../models/Place");
+const User = require("../models/User");
+const Building = require("../models/Building");
 
 module.exports.getAllBookings = asyncHandler(async (req, res, next) => {
   const bookings = await Booking.find().populate("user place");
@@ -105,4 +107,23 @@ module.exports.approveBooking = asyncHandler(async (req, res, next) => {
   } else {
     return next(new ErrorResponse("Error approving booking", 500));
   }
+});
+
+module.exports.getStatistics = asyncHandler(async (req, res, next) => {
+  const numberOfBookings = await Booking.countDocuments();
+  const numberOfUsers = await User.countDocuments();
+  const numberOfPlaces = await Place.countDocuments();
+  const numberOfBuildings = await Building.countDocuments();
+
+  const statistics = {
+    numberOfBookings,
+    numberOfUsers,
+    numberOfPlaces,
+    numberOfBuildings,
+  };
+
+  return res.status(200).json({
+    success: true,
+    data: statistics,
+  });
 });
