@@ -677,6 +677,293 @@
             }
           ]
         }
+      },
+      "/api/v1/places/{id}/images": {
+        "post": {
+          "tags": [
+            "Places"
+          ],
+          "summary": "",
+          "description": "",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Place"
+              }
+            }
+          ],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Created",
+              "schema": {
+                "$ref": "#/definitions/Place"
+              }
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          },
+          "security": [
+            {
+              "Bearer": [
+                "global"
+              ]
+            }
+          ]
+        }
+      },
+      "/api/v1/bookings": {
+        "get": {
+          "tags": [
+            "Bookings"
+          ],
+          "summary": "",
+          "description": "",
+          "parameters": [],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Booking"
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "error": {
+                    "type": "string",
+                    "example": "Internal Server Error"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "Bearer": [
+                "global"
+              ]
+            }
+          ]
+        },
+        "post": {
+          "tags": [
+            "Bookings"
+          ],
+          "summary": "",
+          "description": "",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Booking"
+              }
+            }
+          ],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Created",
+              "schema": {
+                "$ref": "#/definitions/Booking"
+              }
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          },
+          "security": [
+            {
+              "Bearer": [
+                "global"
+              ]
+            }
+          ]
+        }
+      },
+      "/api/v1/bookings/{id}": {
+        "get": {
+          "tags": [
+            "Bookings"
+          ],
+          "summary": "",
+          "description": "",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Booking"
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "error": {
+                    "type": "string",
+                    "example": "Internal Server Error"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "Bearer": [
+                "global"
+              ]
+            }
+          ]
+        }
+      },
+      "/api/v1/bookings/{id}/reject": {
+        "put": {
+          "tags": [
+            "Bookings"
+          ],
+          "summary": "",
+          "description": "",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/Booking"
+              }
+            }
+          ],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Created",
+              "schema": {
+                "$ref": "#/definitions/Booking"
+              }
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          },
+          "security": [
+            {
+              "Bearer": [
+                "global"
+              ]
+            }
+          ]
+        }
+      },
+      "/api/v1/bookings/{id}/approve": {
+        "put": {
+          "tags": [
+            "Bookings"
+          ],
+          "summary": "",
+          "description": "",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/Booking"
+              }
+            }
+          ],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Created",
+              "schema": {
+                "$ref": "#/definitions/Booking"
+              }
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          },
+          "security": [
+            {
+              "Bearer": [
+                "global"
+              ]
+            }
+          ]
+        }
       }
     },
     "definitions": {
@@ -711,6 +998,14 @@
             "type": "string",
             "example": "507f1f77bcf86cd799439011",
             "required": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "example": "1/19/2023, 7:09:13 PM"
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "1/19/2023, 7:09:13 PM"
           }
         }
       },
@@ -740,6 +1035,14 @@
             "type": "string",
             "example": "507f1f77bcf86cd799439011",
             "required": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "example": "1/19/2023, 7:09:13 PM"
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "1/19/2023, 7:09:13 PM"
           }
         }
       },
@@ -774,6 +1077,54 @@
             "type": "string",
             "example": "507f1f77bcf86cd799439011",
             "required": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "example": "1/19/2023, 7:09:13 PM"
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "1/19/2023, 7:09:13 PM"
+          }
+        }
+      },
+      "Booking": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "example": "507f1f77bcf86cd799439011",
+            "required": true
+          },
+          "place": {
+            "type": "string",
+            "example": "507f1f77bcf86cd799439011",
+            "required": true
+          },
+          "startTime": {
+            "type": "string",
+            "example": "1/19/2023, 7:09:13 PM"
+          },
+          "endTime": {
+            "type": "string",
+            "example": "1/19/2023, 7:09:13 PM"
+          },
+          "status": {
+            "type": "string",
+            "example": "string"
+          },
+          "_id": {
+            "type": "string",
+            "example": "507f1f77bcf86cd799439011",
+            "required": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "example": "1/19/2023, 7:09:13 PM"
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "1/19/2023, 7:09:13 PM"
           }
         }
       }

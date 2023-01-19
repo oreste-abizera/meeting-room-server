@@ -76,3 +76,28 @@ module.exports.deletePlace = asyncHandler(async (req, res, next) => {
     return next(new ErrorResponse("Error deleting place", 500));
   }
 });
+
+module.exports.uploadPlaceImages = asyncHandler(async (req, res, next) => {
+  const place = await Place.findById(req.params.id);
+
+  if (place) {
+    if (req.files) {
+      const images = [];
+      req.files.forEach((file) => {
+        images.push(uploadToCloudinary(file.path, "meeting-room/places"));
+      });
+
+      place.images = place.images.concat(images);
+      await place.save();
+
+      return res.status(200).json({
+        success: true,
+        data: place,
+      });
+    } else {
+      return next(new ErrorResponse("No images uploaded", 400));
+    }
+  } else {
+    return next(new ErrorResponse("Error uploading images", 500));
+  }
+});
