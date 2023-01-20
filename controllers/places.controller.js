@@ -3,6 +3,8 @@ const ErrorResponse = require("../utils/errorResponse");
 const Place = require("../models/Place");
 const uploadToCloudinary = require("../utils/uploadToCloudinary");
 
+const Booking = require("../models/Booking");
+
 module.exports.getAllPlaces = asyncHandler(async (req, res, next) => {
   const places = await Place.find().populate("building");
 
@@ -65,6 +67,12 @@ module.exports.updatePlace = asyncHandler(async (req, res, next) => {
 });
 
 module.exports.deletePlace = asyncHandler(async (req, res, next) => {
+  const bookings = await Booking.find({ place: req.params.id });
+
+  if (bookings.length > 0) {
+    return next(new ErrorResponse("Cannot delete place with bookings", 400));
+  }
+
   const place = await Place.findByIdAndDelete(req.params.id);
 
   if (place) {
