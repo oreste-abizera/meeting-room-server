@@ -115,6 +115,93 @@
           ]
         }
       },
+      "/api/v1/auth/me": {
+        "get": {
+          "tags": [
+            "Auth"
+          ],
+          "summary": "",
+          "description": "",
+          "parameters": [],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/User"
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "error": {
+                    "type": "string",
+                    "example": "Internal Server Error"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "Bearer": [
+                "global"
+              ]
+            }
+          ]
+        },
+        "put": {
+          "tags": [
+            "Auth"
+          ],
+          "summary": "",
+          "description": "",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          ],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Created",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          },
+          "security": [
+            {
+              "Bearer": [
+                "global"
+              ]
+            }
+          ]
+        }
+      },
       "/api/v1/users": {
         "get": {
           "tags": [
@@ -1040,6 +1127,9 @@
             "type": "string",
             "example": "string"
           },
+          "profilePicture": {
+            "type": "object"
+          },
           "isAdmin": {
             "type": "boolean",
             "example": false
@@ -1051,11 +1141,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "1/20/2023, 2:20:14 AM"
+            "example": "1/20/2023, 8:13:29 PM"
           },
           "createdAt": {
             "type": "string",
-            "example": "1/20/2023, 2:20:14 AM"
+            "example": "1/20/2023, 8:13:29 PM"
           }
         }
       },
@@ -1088,11 +1178,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "1/20/2023, 2:20:14 AM"
+            "example": "1/20/2023, 8:13:29 PM"
           },
           "createdAt": {
             "type": "string",
-            "example": "1/20/2023, 2:20:14 AM"
+            "example": "1/20/2023, 8:13:29 PM"
           }
         }
       },
@@ -1130,11 +1220,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "1/20/2023, 2:20:14 AM"
+            "example": "1/20/2023, 8:13:29 PM"
           },
           "createdAt": {
             "type": "string",
-            "example": "1/20/2023, 2:20:14 AM"
+            "example": "1/20/2023, 8:13:29 PM"
           }
         }
       },
@@ -1153,11 +1243,11 @@
           },
           "startTime": {
             "type": "string",
-            "example": "1/20/2023, 2:20:14 AM"
+            "example": "1/20/2023, 8:13:29 PM"
           },
           "endTime": {
             "type": "string",
-            "example": "1/20/2023, 2:20:14 AM"
+            "example": "1/20/2023, 8:13:29 PM"
           },
           "status": {
             "type": "string",
@@ -1170,11 +1260,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "1/20/2023, 2:20:14 AM"
+            "example": "1/20/2023, 8:13:29 PM"
           },
           "createdAt": {
             "type": "string",
-            "example": "1/20/2023, 2:20:14 AM"
+            "example": "1/20/2023, 8:13:29 PM"
           }
         }
       }
