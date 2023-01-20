@@ -94,6 +94,34 @@ module.exports.rejectBooking = asyncHandler(async (req, res, next) => {
 });
 
 module.exports.approveBooking = asyncHandler(async (req, res, next) => {
+  // Check if the place is available at the specified time
+  const bookingToApprove = await Booking.findById(req.params.id).populate(
+    "place"
+  );
+  const place = bookingToApprove.place;
+  const bookings = await Booking.find({
+    place: place._id,
+    status: "approved",
+  });
+
+  const newBookingStart = new Date(bookingToApprove.startTime);
+  const newBookingEnd = new Date(bookingToApprove.endTime);
+
+  const isAvailable = bookings.every((booking) => {
+    const bookingStart = new Date(booking.startTime);
+    const bookingEnd = new Date(booking.endTime);
+    return (
+      (newBookingStart < bookingStart && newBookingEnd < bookingStart) ||
+      (newBookingStart > bookingEnd && newBookingEnd > bookingEnd)
+    );
+  });
+
+  if (!isAvailable) {
+    return next(
+      new ErrorResponse("Place not available at the specified time", 400)
+    );
+  }
+
   const booking = await Booking.findByIdAndUpdate(
     req.params.id,
     { status: "approved" },
