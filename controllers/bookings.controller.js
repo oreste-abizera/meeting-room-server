@@ -56,6 +56,7 @@ module.exports.createBooking = asyncHandler(async (req, res, next) => {
       );
     });
     if (isAvailable) {
+      req.body.user = req.user._id;
       const booking = await Booking.create(req.body);
       if (booking) {
         return res.status(201).json({

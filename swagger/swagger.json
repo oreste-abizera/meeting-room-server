@@ -1040,6 +1040,10 @@
             "type": "string",
             "example": "string"
           },
+          "isAdmin": {
+            "type": "boolean",
+            "example": false
+          },
           "_id": {
             "type": "string",
             "example": "507f1f77bcf86cd799439011",
@@ -1047,11 +1051,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "1/20/2023, 12:05:50 AM"
+            "example": "1/20/2023, 2:20:14 AM"
           },
           "createdAt": {
             "type": "string",
-            "example": "1/20/2023, 12:05:50 AM"
+            "example": "1/20/2023, 2:20:14 AM"
           }
         }
       },
@@ -1084,11 +1088,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "1/20/2023, 12:05:51 AM"
+            "example": "1/20/2023, 2:20:14 AM"
           },
           "createdAt": {
             "type": "string",
-            "example": "1/20/2023, 12:05:51 AM"
+            "example": "1/20/2023, 2:20:14 AM"
           }
         }
       },
@@ -1126,11 +1130,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "1/20/2023, 12:05:51 AM"
+            "example": "1/20/2023, 2:20:14 AM"
           },
           "createdAt": {
             "type": "string",
-            "example": "1/20/2023, 12:05:51 AM"
+            "example": "1/20/2023, 2:20:14 AM"
           }
         }
       },
@@ -1149,11 +1153,11 @@
           },
           "startTime": {
             "type": "string",
-            "example": "1/20/2023, 12:05:51 AM"
+            "example": "1/20/2023, 2:20:14 AM"
           },
           "endTime": {
             "type": "string",
-            "example": "1/20/2023, 12:05:51 AM"
+            "example": "1/20/2023, 2:20:14 AM"
           },
           "status": {
             "type": "string",
@@ -1166,11 +1170,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "1/20/2023, 12:05:51 AM"
+            "example": "1/20/2023, 2:20:14 AM"
           },
           "createdAt": {
             "type": "string",
-            "example": "1/20/2023, 12:05:51 AM"
+            "example": "1/20/2023, 2:20:14 AM"
           }
         }
       }
