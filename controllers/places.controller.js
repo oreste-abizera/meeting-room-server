@@ -1,5 +1,5 @@
 const asyncHandler = require("../middleware/async");
-const ErrorResponse = require("../utils/errorResponse");
+const ErrorResponse = require("../utils/ErrorResponse");
 const Place = require("../models/Place");
 const uploadToCloudinary = require("../utils/uploadToCloudinary");
 
