@@ -1141,11 +1141,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "1/21/2023, 12:54:40 AM"
+            "example": "1/21/2023, 11:37:34 AM"
           },
           "createdAt": {
             "type": "string",
-            "example": "1/21/2023, 12:54:40 AM"
+            "example": "1/21/2023, 11:37:34 AM"
           }
         }
       },
@@ -1178,11 +1178,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "1/21/2023, 12:54:40 AM"
+            "example": "1/21/2023, 11:37:34 AM"
           },
           "createdAt": {
             "type": "string",
-            "example": "1/21/2023, 12:54:40 AM"
+            "example": "1/21/2023, 11:37:34 AM"
           }
         }
       },
@@ -1220,11 +1220,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "1/21/2023, 12:54:40 AM"
+            "example": "1/21/2023, 11:37:34 AM"
           },
           "createdAt": {
             "type": "string",
-            "example": "1/21/2023, 12:54:40 AM"
+            "example": "1/21/2023, 11:37:34 AM"
           }
         }
       },
@@ -1243,11 +1243,11 @@
           },
           "startTime": {
             "type": "string",
-            "example": "1/21/2023, 12:54:40 AM"
+            "example": "1/21/2023, 11:37:34 AM"
           },
           "endTime": {
             "type": "string",
-            "example": "1/21/2023, 12:54:40 AM"
+            "example": "1/21/2023, 11:37:34 AM"
           },
           "status": {
             "type": "string",
@@ -1260,11 +1260,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "1/21/2023, 12:54:40 AM"
+            "example": "1/21/2023, 11:37:34 AM"
           },
           "createdAt": {
             "type": "string",
-            "example": "1/21/2023, 12:54:40 AM"
+            "example": "1/21/2023, 11:37:34 AM"
           }
         }
       }
