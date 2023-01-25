@@ -60,6 +60,34 @@ module.exports.login = asyncHandler(async (req, res, next) => {
   });
 });
 
+module.exports.googleLogin = asyncHandler(async (req, res, next) => {
+  const { email, firstName, lastName, profilePicture } = req.body;
+
+  // Check if user exists
+  let user = await User.findOne({ email });
+  if (!user) {
+    return next(
+      new ErrorResponse(`User with email ${email} does not exist`, 400)
+    );
+  }
+
+  // If user exists, update profile picture && !user.profilePicture?.image_url
+  if (profilePicture && !user.profilePicture?.image_url) {
+    user.profilePicture = {
+      image_url: profilePicture,
+      public_id: "google",
+    };
+    await user.save();
+  }
+
+  const token = user.getSignedJwtToken();
+  return res.status(200).json({
+    success: true,
+    token,
+    data: user,
+  });
+});
+
 module.exports.getMe = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.user.id);
 

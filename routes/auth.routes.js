@@ -5,6 +5,7 @@ const {
   login,
   getMe,
   updateMe,
+  googleLogin
 } = require("../controllers/auth.controller");
 const { protect } = require("../middleware/auth");
 
@@ -12,6 +13,7 @@ const router = express.Router();
 
 router.post("/register", register);
 router.post("/login", login);
+router.post("/google", googleLogin)
 
 router.get("/me", protect, getMe);
 router.put("/me", protect, updateMe);
